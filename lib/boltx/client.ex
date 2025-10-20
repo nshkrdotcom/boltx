@@ -254,6 +254,9 @@ defmodule Boltx.Client do
       {:failure, response} ->
         {:error,
          Boltx.Error.wrap(__MODULE__, %{code: response["code"], message: response["message"]})}
+
+      {:ignored, _response} ->
+        {:ok, %{}}
     end
   end
 
